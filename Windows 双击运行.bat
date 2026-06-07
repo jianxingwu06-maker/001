@@ -1,10 +1,15 @@
 @echo off
+chcp 65001 >nul
 setlocal
 cd /d "%~dp0"
 
 echo ========================================
 echo 链接转店小秘成品表格自动化系统
 echo ========================================
+echo.
+echo [信息] 当前目录：%cd%
+echo [信息] input 目录内容：
+dir input
 echo.
 
 if not exist "input\links.txt" (
@@ -15,6 +20,7 @@ if not exist "input\links.txt" (
 
 if not exist "input\template.xlsx" (
   echo [错误] 未找到 input\template.xlsx，请把店小秘 Excel 模板放到 input 目录。
+  echo [错误] 完整路径：%cd%\input\template.xlsx
   pause
   exit /b 1
 )
