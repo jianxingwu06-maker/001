@@ -32,7 +32,7 @@ playwright install chromium
 
 ### 1. 商品链接文本
 
-`links.txt` 每行一个链接：
+`input/links.txt` 每行一个链接（仓库已保留占位文件，直接修改即可）：
 
 ```txt
 https://example.com/product-a
@@ -42,23 +42,25 @@ https://www.etsy.com/listing/xxxx/example
 
 ### 2. 店小秘模板
 
-请提供原始店小秘 Excel 模板，例如 `template.xlsx`。系统会自动查找包含 `商品标题`、`SKU`、`主图`、`售价`、`库存` 等字段的表头行。
+仓库保留了 `input/template.xlsx` 占位说明文件，方便固定运行入口和避免 GitHub 二进制模板冲突。它不是真实 Excel 工作簿；正式运行前，请从店小秘后台下载真实导入模板，并在本机覆盖 `input/template.xlsx`，或通过 `--template` 指定其他模板路径。系统会自动查找包含 `商品标题`、`SKU`、`主图`、`售价`、`库存` 等字段的表头行。
 
 ## 运行
 
 ```bash
 dxm-link-builder \
-  --links links.txt \
-  --template template.xlsx \
+  --links input/links.txt \
+  --template input/template.xlsx \
   --output output \
   --platform temu \
   --accounts account_a,account_b,account_c
 ```
 
+Windows 用户也可以双击仓库根目录的 `Windows 双击运行.bat`。脚本会创建虚拟环境、安装依赖，并默认读取 `input/links.txt` 和 `input/template.xlsx`，输出到 `output/`。
+
 也可以直接使用模块运行：
 
 ```bash
-python -m dxm_link_builder.cli --links links.txt --template template.xlsx --output output --platform amazon --accounts shop1,shop2
+python -m dxm_link_builder.cli --links input/links.txt --template input/template.xlsx --output output --platform amazon --accounts shop1,shop2
 ```
 
 ## 输出目录
@@ -113,6 +115,13 @@ output/
 - `default_stock`
 - `default_logistics`
 - `default_category_id`
+
+## Git 跟踪策略
+
+- `input/links.txt` 会保留在仓库中，作为商品链接输入文件。
+- `input/template.xlsx` 会保留为可合并的文本占位说明；真实店小秘 Excel 模板属于本地输入，不应提交。
+- `output/` 会保留目录本身，但运行生成的 Excel、图片、CSV、JSON 报告等会被 `.gitignore` 忽略。
+- 生成/下载的商品图片、缓存文件和临时 Excel 文件不会进入 Git，避免再次出现二进制文件合并冲突。
 
 ## 注意事项
 

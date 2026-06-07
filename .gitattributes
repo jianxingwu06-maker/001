@@ -1,0 +1,4 @@
+# Treat the placeholder as mergeable text even though it intentionally keeps
+# the .xlsx name users expect to replace locally with their real 店小秘 template.
+input/template.xlsx text eol=lf
+*.bat text eol=crlf
