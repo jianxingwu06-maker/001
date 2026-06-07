@@ -1,0 +1,19 @@
+{
+  "default": {
+    "title_max_length": 120,
+    "language": "zh-CN",
+    "required_fields": ["商品标题", "商品描述", "SKU", "售价", "库存", "主图"],
+    "prohibited_words": ["官方", "正品保证", "最便宜", "第一", "100%", "治愈", "永久", "无敌", "奢侈品牌", "专利", "FDA", "CE认证"],
+    "brand_words": ["nike", "adidas", "apple", "samsung", "lego", "disney", "marvel", "pokemon", "ozon", "amazon", "etsy", "temu", "aliexpress"],
+    "image": {"ratio": "1:1", "min_size": 1000, "watermark_forbidden": true},
+    "default_stock": 100,
+    "default_logistics": "需要人工确认",
+    "default_category_id": "需要人工确认"
+  },
+  "ozon": {"title_max_length": 200, "language": "ru-RU"},
+  "temu": {"title_max_length": 120, "language": "en-US"},
+  "etsy": {"title_max_length": 140, "language": "en-US"},
+  "aliexpress": {"title_max_length": 128, "language": "en-US"},
+  "amazon": {"title_max_length": 200, "language": "en-US"},
+  "mercado_libre": {"title_max_length": 60, "language": "es"}
+}
