@@ -1,0 +1,59 @@
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated automation output. Keep only the directory placeholder.
+output/**
+!output/
+!output/.gitkeep
+
+# Generated/downloaded product images and binary run artifacts.
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.avif
+*.ico
+
+# Real 店小秘 templates are local/private inputs and should not be committed.
+# The tracked input/template.xlsx file is a text placeholder that explains where
+# users should put their real Excel template before running the automation.
+input/*.xls
+input/*.xlsx
+input/*.xlsm
+!input/template.xlsx
+
+# Generated spreadsheet/report artifacts outside output/.
+*.csv
+*.parquet
+*.feather
+~$*.xls*
+
+# Local caches created by tools or manual runs.
+.cache/
+*.cache
+.cache.*
